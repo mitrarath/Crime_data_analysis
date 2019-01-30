@@ -10,30 +10,32 @@ But “can we actually predict crime?” is a question which might come tour min
 
 ## Dataset
 Here we have used datasets for real-word crimes in one of the city in US which is Chicago to construct our data mining models. The dataset is available to download from Chicago Data Portal reflects reported incidents of crime (with the exception of murders where data exists for each victim) that occurred in the City of Chicago from 2001 to 2017 (present, - 7 days). Data is extracted from the Chicago Police Department's CLEAR (Citizen Law Enforcement Analysis and Reporting) system. The dataset contains around 5.8 million rows with 22 columns where each row is a reported crime. The column definition in the dataset is as given below:
-•	ID - Unique identifier for the record.
-•	Case Number - The Chicago Police Department RD Number (Records Division Number), which is unique to the incident.
-•	Date - Date when the incident occurred. this is sometimes a best estimate.
-•	Block - The partially redacted address where the incident occurred, placing it on the same block as the actual address.
-•	IUCR - The Illinois Unifrom Crime Reporting code. This is directly linked to the Primary Type and Description. See the list of IUCR codes at https://data.cityofchicago.org/d/c7ck-438e.
-•	Primary Type - The primary description of the IUCR code.
-•	Description - The secondary description of the IUCR code, a subcategory of the primary description.
-•	Location Description - Description of the location where the incident occurred.
-•	Arrest - Indicates whether an arrest was made.
-•	Domestic - Indicates whether the incident was domestic-related as defined by the Illinois Domestic Violence Act.
-•	Beat - Indicates the beat where the incident occurred. A beat is the smallest police geographic area – each beat has a dedicated police beat car. Three to five beats make up a police sector, and three sectors make up a police district. The Chicago Police Department has 22 police districts. See the beats at   https://data.cityofchicago.org/d/aerh-rz74.
-•	District - Indicates the police district where the incident occurred. See the districts at https://data.cityofchicago.org/d/fthy-xz3r.
-•	 Ward - The ward (City Council district) where the incident occurred. See the wards at https://data.cityofchicago.org/d/sp34-6z76.
-•	Community Area - Indicates the community area where the incident occurred. Chicago has 77 community areas. See the community areas at https://data.cityofchicago.org/d/cauq-8yn6.
-•	FBI Code - Indicates the crime classification as outlined in the FBI's National Incident-Based Reporting System (NIBRS). See the Chicago Police Department listing of these classifications at http://gis.chicagopolice.org/clearmap_crime_sums/crime_types.html.
-•	X Coordinate - The x coordinate of the location where the incident occurred in State Plane Illinois East NAD 1983 projection. This location is shifted from the actual location for partial redaction but falls on the same block.
-•	 Y Coordinate - The y coordinate of the location where the incident occurred in State Plane Illinois East NAD 1983 projection. This location is shifted from the actual location for partial redaction but falls on the same block.
-•	Year - Year the incident occurred.
-•	 Updated On - Date and time the record was last updated.
-•	 Latitude - The latitude of the location where the incident occurred. This location is shifted from the actual location for partial redaction but falls on the same block.
-•	Longitude - The longitude of the location where the incident occurred. This location is shifted from the actual location for partial redaction but falls on the same block.
-•	Location - The location where the incident occurred in a format that allows for creation of maps and other geographic operations on this data portal. This location is shifted from the actual location for partial redaction but falls on the same block.
+-	ID - Unique identifier for the record.
+-	Case Number - The Chicago Police Department RD Number (Records Division Number), which is unique to the incident.
+-	Date - Date when the incident occurred. this is sometimes a best estimate.
+-	Block - The partially redacted address where the incident occurred, placing it on the same block as the actual address.
+-	IUCR - The Illinois Unifrom Crime Reporting code. This is directly linked to the Primary Type and Description. See the list of IUCR codes at https://data.cityofchicago.org/d/c7ck-438e.
+-	Primary Type - The primary description of the IUCR code.
+-	Description - The secondary description of the IUCR code, a subcategory of the primary description.
+-	Location Description - Description of the location where the incident occurred.
+-	Arrest - Indicates whether an arrest was made.
+-	Domestic - Indicates whether the incident was domestic-related as defined by the Illinois Domestic Violence Act.
+-	Beat - Indicates the beat where the incident occurred. A beat is the smallest police geographic area – each beat has a dedicated police beat car. Three to five beats make up a police sector, and three sectors make up a police district. The Chicago Police Department has 22 police districts. See the beats at   https://data.cityofchicago.org/d/aerh-rz74.
+-	District - Indicates the police district where the incident occurred. See the districts at https://data.cityofchicago.org/d/fthy-xz3r.
+-	 Ward - The ward (City Council district) where the incident occurred. See the wards at https://data.cityofchicago.org/d/sp34-6z76.
+-	Community Area - Indicates the community area where the incident occurred. Chicago has 77 community areas. See the community areas at https://data.cityofchicago.org/d/cauq-8yn6.
+-	FBI Code - Indicates the crime classification as outlined in the FBI's National Incident-Based Reporting System (NIBRS). See the Chicago Police Department listing of these classifications at http://gis.chicagopolice.org/clearmap_crime_sums/crime_types.html.
+-	X Coordinate - The x coordinate of the location where the incident occurred in State Plane Illinois East NAD 1983 projection. This location is shifted from the actual location for partial redaction but falls on the same block.
+-	 Y Coordinate - The y coordinate of the location where the incident occurred in State Plane Illinois East NAD 1983 projection. This location is shifted from the actual location for partial redaction but falls on the same block.
+-	Year - Year the incident occurred.
+-	 Updated On - Date and time the record was last updated.
+-	 Latitude - The latitude of the location where the incident occurred. This location is shifted from the actual location for partial redaction but falls on the same block.
+-	Longitude - The longitude of the location where the incident occurred. This location is shifted from the actual location for partial redaction but falls on the same block.
+-	Location - The location where the incident occurred in a format that allows for creation of maps and other geographic operations on this data portal. This location is shifted from the actual location for partial redaction but falls on the same block.
+
 There are some small issues with this dataset like duplicate data specifically in the Case Number column or missing values specifically in Latitude and Longitude details.The duplicate data can be handled easily here by removing the duplicates, but missing value imputation is a critical ingredient and is very important for modelling as there would a lot of data missing and not using or deleting this data might impact our final model. So to irradicate this issue we generally, depending on the type of the missing data/variable, we substitute the values logically. But in our dataset the longitude and latitude variables represent the coordinates of the location where the crime incident occurred and it would  not be correct to substitute these values using simple mathematical logic. So, I had to actually ignore these observations and removed the missing values.
 We also have other datasets which is the Chicago census data. Nothing much complicated about this data set and is also a clean data with no issues as seen in the last data. 
+
 •	Community Area Number: Chicago has 77 community areas. See the community areas at https://data.cityofchicago.org/d/cauq-8yn6
 •	COMMUNITY AREA NAME: Exact Name of the community in plain text	
 •	PERCENT OF HOUSING CROWDED: Percent occupied housing units with more than one person per room
