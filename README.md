@@ -34,16 +34,18 @@ Here we have used datasets for real-word crimes in one of the city in US which i
 -	Location - The location where the incident occurred in a format that allows for creation of maps and other geographic operations on this data portal. This location is shifted from the actual location for partial redaction but falls on the same block.
 
 There are some small issues with this dataset like duplicate data specifically in the Case Number column or missing values specifically in Latitude and Longitude details.The duplicate data can be handled easily here by removing the duplicates, but missing value imputation is a critical ingredient and is very important for modelling as there would a lot of data missing and not using or deleting this data might impact our final model. So to irradicate this issue we generally, depending on the type of the missing data/variable, we substitute the values logically. But in our dataset the longitude and latitude variables represent the coordinates of the location where the crime incident occurred and it would  not be correct to substitute these values using simple mathematical logic. So, I had to actually ignore these observations and removed the missing values.
+
 We also have other datasets which is the Chicago census data. Nothing much complicated about this data set and is also a clean data with no issues as seen in the last data. 
 
-•	Community Area Number: Chicago has 77 community areas. See the community areas at https://data.cityofchicago.org/d/cauq-8yn6
-•	COMMUNITY AREA NAME: Exact Name of the community in plain text	
-•	PERCENT OF HOUSING CROWDED: Percent occupied housing units with more than one person per room
-•	PERCENT HOUSEHOLDS BELOW POVERTY: Percent of households living below the federal poverty level
-•	PERCENT AGED 16+ UNEMPLOYED : Percent of persons over the age of 16 years that are unemployed
-•	PERCENT AGED 25+ WITHOUT HIGH SCHOOL DIPLOMA: Percent of persons over the age of 25 years without a high school education
-•	PERCENT AGED UNDER 18 OR OVER 64: Percent of the population under 18 or over 64 years of age (i.e., dependency)
-•	PER CAPITA INCOME: Community Area Per capita income is estimated as the sum of tract-level aggregate incomes divided by the total population
-•	HARDSHIP INDEX: Score that incorporates each of the six selected socioeconomic indicators (see dataset description)
+-	Community Area Number: Chicago has 77 community areas. See the community areas at https://data.cityofchicago.org/d/cauq-8yn6
+-	COMMUNITY AREA NAME: Exact Name of the community in plain text	
+-	PERCENT OF HOUSING CROWDED: Percent occupied housing units with more than one person per room
+-	PERCENT HOUSEHOLDS BELOW POVERTY: Percent of households living below the federal poverty level
+-	PERCENT AGED 16+ UNEMPLOYED : Percent of persons over the age of 16 years that are unemployed
+-	PERCENT AGED 25+ WITHOUT HIGH SCHOOL DIPLOMA: Percent of persons over the age of 25 years without a high school education
+-	PERCENT AGED UNDER 18 OR OVER 64: Percent of the population under 18 or over 64 years of age (i.e., dependency)
+-	PER CAPITA INCOME: Community Area Per capita income is estimated as the sum of tract-level aggregate incomes divided by the total population
+-	HARDSHIP INDEX: Score that incorporates each of the six selected socioeconomic indicators (see dataset description)
+
 But one thing which we can observe  here by looking at the features and we could estimate that most of the features here are correlated and the question arises which feature should you use in our models and which to reject or shall we use all of them...all these questions will be answered in the feature selection section. 
 
